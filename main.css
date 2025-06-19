@@ -1,0 +1,235 @@
+/* === VARIÁVEIS CSS === */
+/* Definimos aqui cores e fontes reutilizáveis para facilitar manutenção */
+:root {
+    --cor-fundo-header: #2f3640;            /* Cor de fundo do cabeçalho */
+    --cor-texto-claro: #f5f6fa;             /* Cor clara para textos no header e footer */
+    --cor-verde-esportes: #009432;          /* Cor do botão da seção Esportes */
+    --cor-laranja-economia: #ff9f1a;        /* Cor do botão da seção Economia */
+    --cor-azul-cripto: #0508b1;             /* Cor do botão da seção Criptomoedas */
+    --cor-vermelho-politica: rgb(168, 7, 7);/* Cor do botão da seção Política */
+    --cor-fundo-body: #f4f4f4;              /* Cor de fundo geral do site */
+    --fonte-principal: 'Arial', sans-serif; /* Fonte padrão do site */
+}
+
+/* === RESET === */
+/* Remove margens e preenchimentos padrão dos navegadores */
+* {
+    box-sizing: border-box; /* Inclui padding e border no cálculo de largura/altura */
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo global do corpo da página */
+body {
+    font-family: var(--fonte-principal);    /* Fonte aplicada ao site todo */
+    background-color: var(--cor-fundo-body);/* Fundo cinza claro */
+    font-size: 16px;                         /* Tamanho base da fonte */
+    line-height: 1.5;                        /* Espaçamento entre linhas */
+}
+
+/* === CABEÇALHO === */
+body > header {
+    background-color: var(--cor-fundo-header);
+    padding: 16px 0;
+    color: var(--cor-texto-claro);
+}
+
+/* Layout flexível para alinhar título e menu */
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Itens de menu em linha */
+header li {
+    display: inline;
+    font-weight: bold;
+    margin-left: 16px;
+}
+
+/* Estilo dos links de navegação */
+header li a {
+    color: var(--cor-texto-claro);
+    text-decoration: none;
+}
+
+/* Efeitos ao interagir com os links do menu */
+header li a:hover,
+header li a:focus,
+header li a:active {
+    text-decoration: underline;
+    color: #00ff99;
+    border-bottom: 2px solid #00ff99;
+}
+
+/* === CONTAINER CENTRAL === */
+/* Limita o conteúdo a uma largura máxima e centraliza */
+.container {
+    max-width: 1200px;
+    width: 100%;
+    padding: 0 16px;
+    margin: 0 auto;
+}
+
+/* === SEÇÕES DO SITE === */
+section {
+    padding: 32px 0; /* Espaço acima e abaixo das seções */
+}
+
+section h2 {
+    font-size: 28px;
+    margin-bottom: 16px;
+}
+
+/* === LISTA DE ARTIGOS === */
+/* Flexbox para organizar os artigos lado a lado */
+.articles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px; /* Espaço entre artigos */
+}
+
+/* Estilo visual de cada artigo (card) */
+.articles article {
+    width: 30%;
+    background-color: #fff;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Sombra leve */
+}
+
+/* Estilo das imagens dentro dos artigos */
+.articles article img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;   /* Corta a imagem proporcionalmente para caber no espaço */
+    border-radius: 4px;
+    background-color: #ddd; /* Cor de fundo se a imagem não carregar */
+}
+
+/* Título da notícia */
+.articles article h3 {
+    font-size: 20px;
+    margin: 8px 0;
+}
+
+/* Data da publicação */
+.articles article time {
+    font-size: 0.85rem;
+    color: #888;
+}
+
+/* Fonte para parágrafos e botões */
+.articles article p,
+.articles article a {
+    font-family: var(--fonte-principal);
+}
+
+/* Botão \"Ler mais\" */
+.articles article a {
+    background-color: blue;
+    color: #fff;
+    padding: 8px;
+    display: inline-block;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 8px;
+    transition: background-color 0.3s; /* Suaviza mudanças de cor */
+}
+
+/* Efeito hover do botão */
+.articles article a:hover {
+    text-decoration: underline;
+}
+
+.articles article:last-child {
+    margin-bottom: 0;
+}
+
+/* === CORES DE FUNDO E BOTÕES POR SEÇÃO === */
+#sports {
+    background-color: rgba(0, 255, 0, 0.1);
+}
+#sports .articles article a {
+    background-color: var(--cor-verde-esportes);
+}
+
+#economy {
+    background-color: #f8f59f;
+}
+#economy .articles article a {
+    background-color: var(--cor-laranja-economia);
+}
+
+#cryptos {
+    background-color: #95d6d6;
+}
+#cryptos .articles article a {
+    background-color: var(--cor-azul-cripto);
+}
+
+#politics {
+    background-color: rgb(190, 169, 169);
+    overflow: auto; /* impede margem colapsada */
+    padding-bottom: 16px;
+}
+
+.margin-fix {
+    height: 1px; /* impede o colapso visual com o footer */
+}
+
+.articles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px; /* controla o espaçamento entre os cards */
+}
+
+.articles article {
+    margin-bottom: 0; /* evita conflitos verticais */
+}
+
+
+#politics .articles article a {
+    background-color: var(--cor-vermelho-politica);
+}
+
+footer {
+    background-color: var(--cor-fundo-header);
+    color: var(--cor-texto-claro);
+    padding: 10px 0;
+    text-align: center;
+}
+
+footer p {
+    font-size: 0.9rem;
+}
+
+/* === RESPONSIVIDADE PARA TELAS PEQUENAS === */
+@media (max-width: 768px) {
+    /* Empilha os artigos em coluna no celular */
+    .articles {
+        flex-direction: column;
+    }
+
+    /* Ocupa toda a largura no celular */
+    .articles article {
+        width: 100%;
+    }
+
+    /* Empilha o menu e o título no topo */
+    header .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header nav ul {
+        padding-top: 8px;
+    }
+
+    /* Menu vertical */
+    header li {
+        display: block;
+        margin: 8px 0;
+    }
+}
